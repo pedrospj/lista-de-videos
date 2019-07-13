@@ -1,0 +1,42 @@
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10% 5%;
+}
+
+.login-container {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  z-index: 20;
+  background-color: white;
+  padding: 2% 1rem 1rem 1rem;
+  overflow: scroll;
+}
+
+.close-modal {
+  margin-left: auto;
+  padding: 8px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  font-size: 1.3rem;
+  margin-bottom: 5%;
+}
+
+.google-login {
+  margin-top: 5%;
+  padding: 10px;
+  font: inherit;
+  border-radius: 6px;
+  border: none;
+}

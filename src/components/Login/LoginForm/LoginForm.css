@@ -1,0 +1,32 @@
+.form {
+  width: 100%;
+}
+
+.form-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.login-input {
+  border: 1px solid black;
+  font: inherit;
+  border-radius: 4px;
+  padding: 6px;
+}
+
+.login-form-button {
+  width: 100%;
+  padding: 10px;
+  font: inherit;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+}
+
+.login-form-button:disabled {
+  color: #6f6f6f;
+  background-color: #c3c3c3;
+}

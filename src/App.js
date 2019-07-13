@@ -1,9 +1,14 @@
 import React from 'react';
-import { Header } from './components/index';
+import { Header, List } from './components/index';
+import { Switch, Route } from 'react-router-dom';
 import './App.css';
 
-function App() {
-  return <Header />;
-}
-
+const App = () => (
+  <>
+    <Header />
+    <Switch>
+      <Route exact path="/" component={List} />
+    </Switch>
+  </>
+);
 export default App;
