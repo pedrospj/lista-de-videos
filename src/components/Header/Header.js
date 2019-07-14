@@ -4,7 +4,12 @@ import { Link } from 'react-router-dom';
 import './Header.css';
 
 const Header = () => {
-  const [displayModal, setDisplayStatus] = useState(false);
+  const [displayModal, setDisplayStatus] = useState(true);
+
+  const setHiddenTrue = () => {
+    setDisplayStatus(false);
+  };
+
   return (
     <>
       <header className="header">
@@ -16,7 +21,7 @@ const Header = () => {
         </button>
       </header>
       <hr />
-      <Login show={displayModal} disposeModal={setDisplayStatus} />
+      <Login show={displayModal} disposeModal={setHiddenTrue} />
     </>
   );
 };

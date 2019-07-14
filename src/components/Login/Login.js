@@ -4,16 +4,17 @@ import './Login.css';
 
 const Login = ({ show, disposeModal }) =>
   show ? (
-    <div className="backdrop" onClick={() => disposeModal(false)}>
-      <div className="login-container">
-        <button
-          className="fas fa-times close-modal"
-          onClick={() => disposeModal(false)}
-        />
-        <LoginForm />
-        <button className="google-login">Login com Google</button>
+    <>
+      <div className="backdrop" onClick={() => disposeModal()}>
+        <div className="login-container" onClick={e => e.stopPropagation()}>
+          <button
+            className="fas fa-times close-modal"
+            onClick={() => disposeModal()}
+          />
+          <LoginForm />
+        </div>
       </div>
-    </div>
+    </>
   ) : null;
 
 export default Login;

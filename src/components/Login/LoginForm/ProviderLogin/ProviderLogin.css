@@ -1,0 +1,43 @@
+.provider-login {
+  margin: 0 auto 1rem auto;
+}
+
+.provider-button {
+  cursor: pointer;
+  background-color: white;
+  padding: 0.5rem;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.google-login-button {
+  margin-right: 1rem;
+  border: 2px solid #c33125;
+  color: #c33125;
+}
+
+.google-login-button:hover {
+  color: white;
+  background-color: #c33125;
+}
+
+.facebook-login-button {
+  border: 2px solid #4267b2;
+  color: #4267b2;
+}
+
+.facebook-login-button:hover {
+  background-color: #4267b2;
+  color: white;
+}
+
+.brand-icons {
+  margin-right: 6px;
+  font-size: 1rem;
+}
+
+.google-icon {
+}
+
+.facebook-icon {
+}

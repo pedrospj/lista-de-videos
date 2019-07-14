@@ -27,3 +27,9 @@
   color: white;
   background-color: #007bff;
 }
+
+.header-login-link {
+  margin-left: auto;
+  text-decoration: none;
+  color: black;
+}
