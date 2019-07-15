@@ -1,1 +1,1 @@
-export { loginWithGoogle } from './authActions';
+export { loginWithGoogle, signup, logout } from './authActions';

@@ -1,0 +1,9 @@
+.userinfo-container {
+  margin-left: auto;
+  cursor: pointer;
+  text-align: justify;
+}
+
+.userinfo-p {
+  margin: 0;
+}

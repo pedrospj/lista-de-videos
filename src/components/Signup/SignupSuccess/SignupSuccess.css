@@ -1,0 +1,15 @@
+.signup-success-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.check-icon {
+  font-size: 4rem;
+  color: green;
+}
+
+.p1-signup-success {
+  margin: 1rem 0 0 0;
+  font-weight: 700;
+}
