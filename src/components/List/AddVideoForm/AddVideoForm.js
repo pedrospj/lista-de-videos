@@ -17,7 +17,9 @@ const AddVideoForm = props => {
       <Formik
         initialValues={{ link: '' }}
         validationSchema={addFormSchema}
-        onSubmit={values => dispatch(actions.videoSubmit(values.link))}
+        onSubmit={values =>
+          dispatch(actions.videoSubmit(values.link, props.userEmail))
+        }
       >
         {({ errors, touched, isValid }) => (
           <Form className="addvideo-form">

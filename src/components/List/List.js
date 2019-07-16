@@ -10,6 +10,7 @@ const PlusSquare = () => <i className="far fa-plus-square plus-square-icon" />;
 const List = props => {
   const [hidden, setHidden] = useState(true);
   const disposeModal = () => setHidden(true);
+  const userEmail = useSelector(state => state.auth.userEmail);
   const videosArray = useSelector(state => state.video.list);
   const dispatch = useDispatch();
 
@@ -20,11 +21,16 @@ const List = props => {
   return (
     <div className="list-container">
       <h1 className="list-h1-title">Vídeos</h1>
-      <button className="list-add-button" onClick={() => setHidden(false)}>
-        <PlusSquare />
-        Adicionar video
-      </button>
-      {!hidden ? <AddVideoForm disposeModal={disposeModal} /> : null}
+      {userEmail ? (
+        <button className="list-add-button" onClick={() => setHidden(false)}>
+          <PlusSquare />
+          Adicionar video
+        </button>
+      ) : null}
+
+      {!hidden ? (
+        <AddVideoForm disposeModal={disposeModal} userEmail={userEmail} />
+      ) : null}
       {videosArray ? <VideoList videosArray={videosArray} /> : null}
     </div>
   );

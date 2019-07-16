@@ -1,0 +1,70 @@
+.videoitem-button {
+  background-color: white;
+  border: 1px solid;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.videoitem-button-like {
+  color: #007bff;
+  border-color: #007bff;
+}
+
+.videoitem-button-like:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.videoitem-button-liked {
+  background-color: #007bff;
+  color: white;
+  cursor: context-menu;
+}
+
+.videoitem-button-dislike {
+  border-color: #c33125;
+  color: #c33125;
+}
+
+.videoitem-button-dislike:hover {
+  background-color: #c33125;
+  color: white;
+}
+
+.videoitem-button-disliked {
+  background-color: #c33125;
+  color: white;
+  cursor: context-menu;
+}
+
+.videoitem-inner-p {
+  margin: 0;
+}
+
+.videoitem-inner-number {
+  margin: 0 0 2px 0;
+}
+
+.videoitem-button-like.video-button-loggedout {
+  cursor: not-allowed;
+}
+.videoitem-button-like.video-button-loggedout:hover {
+  background-color: white;
+  color: #007bff;
+  border-color: #007bff;
+}
+
+.videoitem-button-dislike.video-button-loggedout {
+  cursor: not-allowed;
+}
+
+.videoitem-button-dislike.video-button-loggedout:hover {
+  background-color: white;
+  border-color: #c33125;
+  color: #c33125;
+}

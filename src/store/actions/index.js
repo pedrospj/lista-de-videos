@@ -5,4 +5,4 @@ export {
   loginWithEmailAndPassword
 } from './authActions';
 
-export { videoSubmit, fetchVideos, likeVideo } from './videoActions';
+export { videoSubmit, fetchVideos, rateVideo } from './videoActions';
