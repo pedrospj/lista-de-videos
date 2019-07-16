@@ -1,30 +1,6 @@
 import * as actionTypes from '../actionTypes';
 import { auth, googleProvider } from '../../firebaseConfig';
 
-const login = user => {
-  console.log(user, 'oi');
-  return {
-    type: actionTypes.LOGIN,
-    payload: user
-  };
-};
-
-export const loginWithGoogle = () => {
-  return dispatch => {
-    auth
-      .signInWithPopup(googleProvider)
-      .then(result => {
-        console.log(result);
-        const user = {
-          userName: result.user.displayName,
-          userEmail: result.user.email
-        };
-        dispatch(login(user));
-      })
-      .catch(error => console.log(error));
-  };
-};
-
 export const signup = userInfo => {
   return dispatch => {
     auth
@@ -44,6 +20,52 @@ export const signup = userInfo => {
           });
       })
       .catch(error => console.log(error, 'erro'));
+  };
+};
+
+const login = (user, disposeModal) => {
+  if (disposeModal) {
+    disposeModal();
+  }
+  return {
+    type: actionTypes.LOGIN,
+    payload: { ...user, error: false }
+  };
+};
+
+export const loginWithGoogle = disposeModal => {
+  return dispatch => {
+    auth
+      .signInWithPopup(googleProvider)
+      .then(result => {
+        console.log(result);
+        const user = {
+          userName: result.user.displayName,
+          userEmail: result.user.email
+        };
+        dispatch(login(user, disposeModal));
+      })
+      .catch(error => console.log(error));
+  };
+};
+
+export const loginWithEmailAndPassword = ({
+  email,
+  password,
+  disposeModal
+}) => {
+  return dispatch => {
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then(response => {
+        const user = {
+          userName: response.user.displayName,
+          userEmail: response.user.email
+        };
+        dispatch(login(user, disposeModal));
+        disposeModal();
+      })
+      .catch(_ => dispatch({ type: actionTypes.LOGIN_ERROR }));
   };
 };
 

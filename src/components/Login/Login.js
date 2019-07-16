@@ -1,18 +1,13 @@
 import React from 'react';
+import { Modal } from '../Elements/index';
 import LoginForm from './LoginForm/LoginForm';
 import './Login.css';
 
 const Login = ({ show, disposeModal }) =>
   show ? (
-    <div className="backdrop" onClick={() => disposeModal()}>
-      <div className="login-container" onClick={e => e.stopPropagation()}>
-        <button
-          className="fas fa-times close-modal"
-          onClick={() => disposeModal()}
-        />
-        <LoginForm disposeModal={disposeModal} />
-      </div>
-    </div>
+    <Modal disposeModal={disposeModal}>
+      <LoginForm disposeModal={disposeModal} />
+    </Modal>
   ) : null;
 
 export default Login;

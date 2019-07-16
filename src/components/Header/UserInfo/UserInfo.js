@@ -5,18 +5,16 @@ import './UserInfo.css';
 
 const UserInfo = () => {
   const [hidden, setHidden] = useState(true);
-  const user = useSelector(state => state.userName);
+  const user = useSelector(state => state.auth.userName);
   const disposeModal = () => setHidden(true);
 
   return (
-    console.log(user) || (
-      <>
-        <div className="userinfo-container" onClick={() => setHidden(false)}>
-          <p className="userinfo-p">{user}</p>
-        </div>
-        {!hidden ? <LogoutModal disposeModal={disposeModal} /> : null}
-      </>
-    )
+    <>
+      <div className="userinfo-container" onClick={() => setHidden(false)}>
+        <p className="userinfo-p">{user}</p>
+      </div>
+      {!hidden ? <LogoutModal disposeModal={disposeModal} /> : null}
+    </>
   );
 };
 

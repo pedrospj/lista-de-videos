@@ -9,63 +9,6 @@
   margin: 0 auto 1.5rem auto;
 }
 
-.login-input {
-  border: 1px solid black;
-  font: inherit;
-  border-radius: 4px;
-  padding: 6px;
-}
-
-.login-input-error {
-  border: 1px solid red;
-  font: inherit;
-  border-radius: 4px;
-  padding: 6px;
-}
-
-.login-error-message {
-  color: red;
-  font-size: 0.9rem;
-  font-weight: 700;
-  margin-top: 3px;
-}
-
-.login-form-button {
-  margin: 1rem auto 1rem auto;
-  padding: 10px;
-  font: inherit;
-  background-color: white;
-  color: #007bff;
-  border: 2px solid #007bff;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.login-form-button:hover {
-  background-color: #007bff;
-  color: white;
-}
-
-.login-form-button-disabled {
-  color: grey;
-  background-color: white;
-  margin: 1rem auto 1rem auto;
-  padding: 10px;
-  font: inherit;
-  border: 2px solid grey;
-  border-radius: 6px;
-  cursor: not-allowed;
-}
-
-.google-login {
-  margin-top: 5%;
-  padding: 10px;
-  font: inherit;
-  border-radius: 6px;
-  border: none;
-}
-
 .p-login {
   margin: 1rem auto;
 }
@@ -87,7 +30,8 @@
   color: white;
 }
 
-.login-modal-label {
-  display: block;
-  margin-top: 1rem;
+.login-user-error {
+  color: red;
+  margin: 1rem auto;
+  font-weight: 700;
 }

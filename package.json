@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "better-youtube-api": "^1.0.2",
     "firebase": "^6.3.0",
     "formik": "^1.5.8",
     "react": "^16.8.6",

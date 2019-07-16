@@ -1,7 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as actions from '../../store/actions/index';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik';
+import { FormField, FormButton } from '../Elements/index';
 import * as Yup from 'yup';
 import SignupSuccess from './SignupSuccess/SignupSuccess';
 import './Signup.css';
@@ -19,7 +20,7 @@ const SignupSchema = Yup.object().shape({
 
 const Signup = props => {
   const dispatch = useDispatch();
-  const redirect = useSelector(state => state.redirect);
+  const redirect = useSelector(state => state.auth.redirect);
 
   if (redirect) {
     return <SignupSuccess />;
@@ -40,83 +41,42 @@ const Signup = props => {
       >
         {({ errors, touched, isValid, ...rest }) => (
           <Form className="signup-form">
-            <label className="signup-input-label">Nome:</label>
-            <Field
-              type="text"
-              name="firstName"
-              placeholder="Digite seu nome"
-              className={
-                errors.firstName && touched.firstName
-                  ? 'signup-input-error'
-                  : 'signup-input'
-              }
-            />
-            <ErrorMessage
-              name="firstName"
-              component="div"
-              className="signup-error-message"
+            <FormField
+              fieldName="firstName"
+              label="Nome:"
+              fieldType="text"
+              fieldPlaceholder="Digite seu nome"
+              error={errors.firstName}
+              touched={touched.firstName}
             />
 
-            <label className="signup-input-label">Sobrenome:</label>
-            <Field
-              type="text"
-              name="lastName"
-              placeholder="Digite seu sobrenome"
-              className={
-                errors.lastName && touched.lastName
-                  ? 'signup-input-error'
-                  : 'signup-input'
-              }
-            />
-            <ErrorMessage
-              name="lastName"
-              component="div"
-              className="signup-error-message"
+            <FormField
+              fieldName="lastName"
+              label="Sobrenome:"
+              fieldType="text"
+              fieldPlaceholder="Digite seu sobrenome"
+              error={errors.lastName}
+              touched={touched.lastName}
             />
 
-            <label className="signup-input-label">Email:</label>
-            <Field
-              type="email"
-              name="email"
-              placeholder="Digite seu email"
-              className={
-                errors.email && touched.email
-                  ? 'signup-input-error'
-                  : 'signup-input'
-              }
+            <FormField
+              fieldName="email"
+              label="Email:"
+              fieldType="email"
+              fieldPlaceholder="Digite seu email"
+              error={errors.email}
+              touched={touched.email}
             />
-            <ErrorMessage
-              name="email"
-              component="div"
-              className="signup-error-message"
-            />
-
-            <label className="signup-input-label">Senha:</label>
-            <Field
-              type="password"
-              name="password"
-              placeholder="Digite uma senha"
-              className={
-                errors.password && touched.password
-                  ? 'signup-input-error'
-                  : 'signup-input'
-              }
-            />
-            <ErrorMessage
-              name="password"
-              component="div"
-              className="signup-error-message"
+            <FormField
+              fieldName="password"
+              label="Senha:"
+              fieldType="password"
+              fieldPlaceholder="Digite sua senha"
+              error={errors.password}
+              touched={touched.password}
             />
 
-            <button
-              type="submit"
-              className={
-                isValid ? 'signup-submit-button' : 'signup-submit-button-error'
-              }
-              disabled={!isValid}
-            >
-              Enviar
-            </button>
+            <FormButton isFormValid={isValid}>Enviar</FormButton>
           </Form>
         )}
       </Formik>

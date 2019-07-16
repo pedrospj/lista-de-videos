@@ -6,8 +6,8 @@ import UserInfo from './UserInfo/UserInfo';
 import './Header.css';
 
 const Header = () => {
-  const [displayModal, setDisplayStatus] = useState(true);
-  const logged = useSelector(state => state.userEmail);
+  const [displayModal, setDisplayStatus] = useState(false);
+  const logged = useSelector(state => state.auth.userEmail);
 
   const setHiddenTrue = () => {
     setDisplayStatus(false);

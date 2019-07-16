@@ -1,8 +1,11 @@
 import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik';
+import { FormField, FormButton } from '../../Elements/index';
 import * as Yup from 'yup';
 import ProviderLogin from './ProviderLogin/ProviderLogin';
 import { Link } from 'react-router-dom';
+import * as actions from '../../../store/actions/index';
+import { useDispatch, useSelector } from 'react-redux';
 import './LoginForm.css';
 
 const loginSchema = Yup.object().shape({
@@ -15,6 +18,8 @@ const loginSchema = Yup.object().shape({
 });
 
 const LoginForm = ({ disposeModal }) => {
+  const loginError = useSelector(state => state.auth.error);
+  const dispatch = useDispatch();
   return (
     <>
       <Formik
@@ -23,48 +28,46 @@ const LoginForm = ({ disposeModal }) => {
           password: ''
         }}
         validationSchema={loginSchema}
+        onSubmit={values => {
+          dispatch(
+            actions.loginWithEmailAndPassword({
+              ...values,
+              disposeModal: disposeModal
+            })
+          );
+        }}
       >
         {({ errors, touched, isValid }) => (
           <Form className="form">
             <h1 className="h1-title">Faça login ou Cadastre-se</h1>
-            <label className="login-modal-label">Email:</label>
-            <Field
-              type="email"
-              name="email"
-              placeholder="Digite seu email"
-              className={errors.email ? 'login-input-error' : 'login-input'}
+
+            <FormField
+              fieldName="email"
+              label="Email:"
+              fieldType="email"
+              fieldPlaceholder="Digite seu email"
+              error={errors.email}
+              touched={touched.email}
             />
-            <ErrorMessage
-              name="email"
-              component="div"
-              className="login-error-message"
+            <FormField
+              fieldName="password"
+              label="Senha:"
+              fieldType="password"
+              fieldPlaceholder="Digite sua senha"
+              error={errors.password}
+              touched={touched.password}
             />
 
-            <label className="login-modal-label">Senha:</label>
-            <Field
-              type="password"
-              name="password"
-              placeholder="Digite sua senha"
-              className={errors.password ? 'login-input-error' : 'login-input'}
-            />
-            <ErrorMessage
-              name="password"
-              component="div"
-              className="login-error-message"
-            />
+            {loginError ? (
+              <div className="login-user-error">
+                Usuário ou senha incorretos
+              </div>
+            ) : null}
 
-            <button
-              type="submit"
-              className={
-                isValid ? 'login-form-button' : 'login-form-button-disabled'
-              }
-              disabled={!isValid}
-            >
-              Login
-            </button>
+            <FormButton isFormValid={isValid}>Login</FormButton>
 
             <p className="p-login">Faça login com:</p>
-            <ProviderLogin />
+            <ProviderLogin disposeModal={disposeModal} />
 
             <p className="p-login">OU</p>
             <Link

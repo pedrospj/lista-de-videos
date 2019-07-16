@@ -1,0 +1,59 @@
+.form-h1-title {
+  font-size: 1.5rem;
+  margin: 0 auto 1.5rem auto;
+}
+
+.form-label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 700;
+}
+
+.form-input {
+  border: 1px solid black;
+  font: inherit;
+  border-radius: 4px;
+  padding: 6px;
+}
+
+.form-input-error {
+  border: 1px solid red;
+  font: inherit;
+  border-radius: 4px;
+  padding: 6px;
+}
+
+.form-error-message {
+  color: red;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-top: 3px;
+}
+
+.form-submit-button {
+  margin: 1rem auto 1rem auto;
+  padding: 10px;
+  font: inherit;
+  background-color: white;
+  color: #007bff;
+  border: 2px solid #007bff;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.form-submit-button:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.form-submit-button-disabled {
+  color: grey;
+  background-color: white;
+  margin: 1rem auto 1rem auto;
+  padding: 10px;
+  font: inherit;
+  border: 2px solid grey;
+  border-radius: 6px;
+  cursor: not-allowed;
+}

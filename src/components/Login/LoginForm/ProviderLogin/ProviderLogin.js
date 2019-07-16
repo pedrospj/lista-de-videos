@@ -7,11 +7,11 @@ const GoogleIcon = () => <i className="fab fa-google brand-icons" />;
 
 const FacebookIcon = () => <i className="fab fa-facebook-square brand-icons" />;
 
-const ProviderLogin = () => {
+const ProviderLogin = ({ disposeModal }) => {
   const dispatch = useDispatch();
   const googleLogin = event => {
     event.preventDefault();
-    dispatch(actions.loginWithGoogle());
+    dispatch(actions.loginWithGoogle(disposeModal));
   };
 
   return (
