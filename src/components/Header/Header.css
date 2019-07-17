@@ -4,18 +4,19 @@
   align-items: center;
   width: 100%;
   padding: 2%;
+  background-color: #007bff;
 }
 
 .header-title {
-  color: black;
+  color: white;
   text-decoration: none;
   font-weight: 900;
 }
 
 .login-button {
-  color: #007bff;
-  background-color: white;
-  border: 2px solid #007bff;
+  color: white;
+  background-color: #007bff;
+  border: 2px solid white;
   padding: 8px 15px;
   cursor: pointer;
   border-radius: 4px;
@@ -24,8 +25,8 @@
 }
 
 .login-button:hover {
-  color: white;
-  background-color: #007bff;
+  color: #007bff;
+  background-color: white;
 }
 
 .header-login-link {

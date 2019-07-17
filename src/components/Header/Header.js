@@ -30,7 +30,6 @@ const Header = () => {
           </button>
         )}
       </header>
-      <hr />
       <Login show={displayModal} disposeModal={setHiddenTrue} />
     </>
   );

@@ -27,15 +27,3 @@
 .plus-square-icon {
   margin-right: 6px;
 }
-
-@media (min-width: 600px) {
-  .list-container {
-    padding: 1rem 20%;
-  }
-}
-
-@media (min-width: 800px) {
-  .list-container {
-    padding: 1rem 30%;
-  }
-}
