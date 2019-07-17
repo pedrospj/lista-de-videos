@@ -21,13 +21,13 @@
   background-color: #c33125;
 }
 
-.facebook-login-button {
-  border: 2px solid #4267b2;
-  color: #4267b2;
+.github-login-button {
+  border: 2px solid #495057;
+  color: #495057;
 }
 
-.facebook-login-button:hover {
-  background-color: #4267b2;
+.github-login-button:hover {
+  background-color: #495057;
   color: white;
 }
 

@@ -1,5 +1,5 @@
 import * as actionTypes from '../actionTypes';
-import { auth, googleProvider } from '../../firebaseConfig';
+import { auth, googleProvider, githubProvider } from '../../firebaseConfig';
 
 export const signup = userInfo => {
   return dispatch => {
@@ -38,7 +38,21 @@ export const loginWithGoogle = disposeModal => {
     auth
       .signInWithPopup(googleProvider)
       .then(result => {
-        console.log(result);
+        const user = {
+          userName: result.user.displayName,
+          userEmail: result.user.email
+        };
+        dispatch(login(user, disposeModal));
+      })
+      .catch(error => console.log(error));
+  };
+};
+
+export const loginWithGithub = disposeModal => {
+  return dispatch => {
+    auth
+      .signInWithPopup(githubProvider)
+      .then(result => {
         const user = {
           userName: result.user.displayName,
           userEmail: result.user.email
