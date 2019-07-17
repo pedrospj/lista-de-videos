@@ -18,7 +18,13 @@ const AddVideoForm = props => {
         initialValues={{ link: '' }}
         validationSchema={addFormSchema}
         onSubmit={values =>
-          dispatch(actions.videoSubmit(values.link, props.userEmail))
+          dispatch(
+            actions.videoSubmit(
+              values.link,
+              props.userEmail,
+              props.disposeModal
+            )
+          )
         }
       >
         {({ errors, touched, isValid }) => (

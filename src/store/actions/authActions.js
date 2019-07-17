@@ -83,8 +83,11 @@ export const loginWithEmailAndPassword = ({
   };
 };
 
-export const logout = () => {
+export const logout = disposeModal => {
   return dispatch => {
-    auth.signOut().then(_ => dispatch({ type: actionTypes.LOGOUT }));
+    auth.signOut().then(_ => {
+      dispatch({ type: actionTypes.LOGOUT });
+    });
+    disposeModal();
   };
 };

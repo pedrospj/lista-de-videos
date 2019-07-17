@@ -9,7 +9,7 @@ const SignoutIcon = () => <i className="fas fa-sign-out-alt" />;
 const LogoutModal = ({ disposeModal }) => {
   const dispatch = useDispatch();
   const logout = () => {
-    dispatch(actions.logout());
+    dispatch(actions.logout(disposeModal));
     disposeModal();
   };
   return (

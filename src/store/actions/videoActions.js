@@ -2,11 +2,10 @@ import * as actionTypes from '../actionTypes';
 import { myYoutubeApiKey, firestore } from '../../firebaseConfig';
 import { YouTube } from 'better-youtube-api';
 
-export const videoSubmit = (link, userEmail) => {
+export const videoSubmit = (link, userEmail, disposeModal) => {
   return dispatch => {
     const youtube = new YouTube(myYoutubeApiKey);
     youtube.getVideoByUrl(link).then(videoData => {
-      console.log(videoData, 'data');
       firestore
         .collection('videos')
         .doc(videoData.id)
@@ -20,6 +19,7 @@ export const videoSubmit = (link, userEmail) => {
         })
         .then(_ => dispatch({ type: actionTypes.VIDEO_SUBMIT }));
     });
+    disposeModal();
   };
 };
 
